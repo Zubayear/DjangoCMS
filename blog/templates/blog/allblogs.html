@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content_1 %}
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                {% for blog in blog.all %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ blog.image.url }}" alt="No image" >
+                            <div class="card-body bg-primary">
+                                <div class="card-overlay">
+                                    <a id="custom-btn" type="button" class="btn btn-danger" href="">Article</a>
+                                </div>
+                                <h6 id="jubaer" class="text-uppercase text-white">{{ blog.title }}</h6>
+                                <p class="card-text text-white">{{ blog.body|slice:":255" }}</p>
+                                <a class="btn btn-danger btn-sm text-white float-right" href="{% url 'detail' blog.id %}">Full read</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content_2 %}
+
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                {% for blog in blog.all %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ blog.image.url }}" alt="No image" >
+                            <div class="card-body">
+                                <div class="card-overlay">
+                                    <a id="custom-btn" type="button" class="btn btn-danger" href="">Article</a>
+                                </div>
+                                <h6 id="jubaer" class="text-uppercase">{{ blog.title }}</h6>
+                                <p class="card-text">{{ blog.summary }}</p>
+
+                                <a class="btn btn-danger btn-sm text-white float-right" href="{% url 'detail' blog.id %}">Full read</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block session %}
+    <div id="custom-card" class="card" >
+        <div class="row no-gutters">
+            <div class="col-md-5">
+                <img src="{{ blog.first.image.url }}" class="card-img-top h-100" alt="...">
+            </div>
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.first.title }}</h5>
+                    <p class="card-text">{{ blog.first.summary }}</p>
+                    <a id="custom-read" class="btn btn-danger btn-sm text-white float-right" href="{% url 'detail' blog.first.id %}">Full read</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block last %}
+
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                {% for blog in blog.all %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ blog.image.url }}" alt="No image" >
+                            <div class="card-body">
+
+                                <h6 id="jubaer" class="text-uppercase">{{ blog.title }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                {% for job in job.all %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ job.image.url }}" alt="No image" >
+                            <div class="card-body bg-primary">
+                                <div class="card-overlay">
+                                    <a id="custom-btn" type="button" class="btn btn-danger" href="">Article</a>
+                                </div>
+                                <h6 id="jubaer" class="text-uppercase text-white">{{ job.title }}</h6>
+                                <p class="card-text text-white">{{ job.summary }}</p>
+
+                                <a class="btn btn-danger btn-sm text-white float-right" href="{% url 'detail' job.id %}">Full read</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block job_content %}
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                {% for job in job.all %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ job.image.url }}" alt="No image" >
+                            <div class="card-body bg-primary">
+                                <div class="card-overlay">
+                                    <a id="custom-btn" type="button" class="btn btn-danger" href="">Article</a>
+                                </div>
+                                <h6 id="jubaer" class="text-uppercase text-white">{{ job.title }}</h6>
+                                <p class="card-text text-white">{{ job.summary }}</p>
+
+                                <a class="btn btn-danger btn-sm text-white float-right" href="{% url 'detail' job.id %}">Full read</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
