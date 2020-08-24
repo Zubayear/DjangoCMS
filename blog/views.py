@@ -6,7 +6,7 @@ from .models import Blog
 def allblogs(request):
     blog = Blog.objects.all
     context = {
-        "blog": blog
+        "blog": blog,
     }
     return render(request, 'blog/allblogs.html', context)
 
